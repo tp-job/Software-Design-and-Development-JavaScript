@@ -96,6 +96,15 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
         };
     </script>
 
+    <form id="info">
+        <div class="name">
+            <p>fullname</p>
+            <label for="fullname">Name :</label>
+            <input type="text" name="fullname" id="fullname" required>
+        </div>
+        <button id="fullname" onclick="hello4()">show fullname</button>
+    </form>
+
     <!-- External JavaScript -->
     <script src="script.js"></script>
 </body>
@@ -106,11 +115,24 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
 document.getElementById('btn3').onclick = function() {
     alert('3:28 PM');
 };
+
+function hello4() {
+    const fullname = document.getElementById('fullname').value;
+    if (fullname) {
+        alert(`Full Name: ${fullname}`);
+    } else {
+        alert('Please enter your full name.');
+    }
+}
+
+document.getElementById('show-fullname-btn').addEventListener('click', hello4);
 ```
 [รูปผลการทดลองที่ 1]
 ![image](https://github.com/user-attachments/assets/bd4a7470-6410-4ff5-bd9b-1c3c8d46f38e)
 ![image](https://github.com/user-attachments/assets/2db71edd-4b9f-4aa9-9ccc-e5f5703c4d61)
 ![image](https://github.com/user-attachments/assets/48bfbaa8-e4cb-45b2-86da-342ff0a0a154)
+![image](https://github.com/user-attachments/assets/4825f368-4f6c-41c5-9fb2-453b38842a37)
+
 
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
