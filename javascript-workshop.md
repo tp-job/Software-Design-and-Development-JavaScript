@@ -70,11 +70,48 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
    - มีช่องกรอกข้อความ
    - มีปุ่มเมื่อคลิกแล้วจะแสดงข้อความที่กรอกในช่องข้อความ
 ### บันทึกผลการทดลอง 
+โค้ด html
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Inline JavaScript -->
+    <button onclick="alert('theeranat phutiwanich')">แสดงชื่อนักศึกษา</button>
+
+    <!-- ทดสอบ Internal JavaScript -->
+    <button id="btn2">แสดงวันที่ปัจจุบัน</button>
+
+    <!-- ทดสอบ External JavaScript -->
+    <button id="btn3" onclick="hello3();">แสดงเวลาปัจจุบัน</button>
+
+    <!-- Internal JavaScript -->
+    <script>
+        document.getElementById('btn2').onclick = function() {
+            alert('Tuesday, February 11, 2025');
+        };
+    </script>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+โค้ด js
+```js
+document.getElementById('btn3').onclick = function() {
+    alert('3:28 PM');
+};
 ```
 [รูปผลการทดลองที่ 1]
-  
+![image](https://github.com/user-attachments/assets/bd4a7470-6410-4ff5-bd9b-1c3c8d46f38e)
+![image](https://github.com/user-attachments/assets/2db71edd-4b9f-4aa9-9ccc-e5f5703c4d61)
+![image](https://github.com/user-attachments/assets/48bfbaa8-e4cb-45b2-86da-342ff0a0a154)
+
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
 
