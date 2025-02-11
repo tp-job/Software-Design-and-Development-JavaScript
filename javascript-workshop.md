@@ -255,10 +255,25 @@ number /= 2;          // เท่ากับ number = number / 2
 2. เขียนโปรแกรม กำหนดชื่อสินค้า ราคาสินค้า คำนวณราคาสินค้าที่รวม VAT 7% แล้วแสดงผลการคำนวณ
 
 ### บันทึกผลการทดลอง 2.2
-```html
-[บันทึกโค้ด ที่นี่]
+```js
+let math = 70;
+let thai = 90;
+let eng = 85;
+
+let sum = math + thai + eng;
+let result = sum / 3;
+
+console.log("score : ", result);
+
+const nameProduct = "Mobile";
+const priceProduct = 85;
+const VAT = 7 / 100;
+const maxprice = priceProduct * VAT;
+
+console.log("maxprice : ", maxprice);
 ```
 [รูปผลการทดลองที่ 2.2]
+![image](https://github.com/user-attachments/assets/cae7f94a-4023-4ac0-8a73-ef2f3faccae2)
 
 ### 2.3 การควบคุมการทำงาน
 
@@ -388,8 +403,22 @@ for (let i = 1; i <= 5; i++) {
 4. เขียนโปรแกรมกำหนดอายุ และตรวจสอบช่วงวัยตามอายุที่กำหนด (กำหนดอายุแต่ละช่วงวัย วัยเด็ก วัยรุ่น วัยผู้ใหญ่)
 
 ### บันทึกผลการทดลอง 2.3
-```html
-[บันทึกโค้ด ที่นี่]
+```js
+let math = 70;
+let thai = 90;
+let eng = 85;
+
+let sum = math + thai + eng;
+let result = sum / 3;
+
+console.log("score : ", result);
+
+const nameProduct = "Mobile";
+const priceProduct = 85;
+const VAT = 7 / 100;
+const maxprice = priceProduct * VAT;
+
+console.log("maxprice : ", maxprice);
 ```
 [รูปผลการทดลองที่ 2.3]
 
