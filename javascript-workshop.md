@@ -187,11 +187,25 @@ let person = {
 2. สร้าง Object สำหรับเก็บข้อมูลนักศึกษา  ประกอบด้วยข้อมูล รหัสนักศึกษา, ชื่อ, สาขาวิชา, เกรดเฉลี่ย
 
 ### บันทึกผลการทดลอง 2.1
-```html
-[บันทึกโค้ด ที่นี่]
+```js
+const ID = "67030098";
+const nameSD = "Theeranat Phutiwanich"
+const midtermScores = 70;
+
+const personSD = {
+    ID: "67030098",
+    nameSD: "Theeranat Phutiwanich",
+    branch: "Computer Technology",
+    gpa: 37.00,
+};
+
+console.log(ID);
+console.log(nameSD);
+console.log(midtermScores);
+console.log(personSD)
 ```
 [รูปผลการทดลองที่ 2.1]
-
+![image](https://github.com/user-attachments/assets/e12cd6fa-acfe-49d5-a109-6a3b5bee8432)
 
 ### 2.2 การดำเนินการทางคณิตศาสตร์
 
