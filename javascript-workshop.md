@@ -131,8 +131,7 @@ document.getElementById('show-fullname-btn').addEventListener('click', hello4);
 ![image](https://github.com/user-attachments/assets/bd4a7470-6410-4ff5-bd9b-1c3c8d46f38e)
 ![image](https://github.com/user-attachments/assets/2db71edd-4b9f-4aa9-9ccc-e5f5703c4d61)
 ![image](https://github.com/user-attachments/assets/48bfbaa8-e4cb-45b2-86da-342ff0a0a154)
-![image](https://github.com/user-attachments/assets/4825f368-4f6c-41c5-9fb2-453b38842a37)
-
+![image](https://github.com/user-attachments/assets/c8a561d7-b54c-4b05-b0dc-44d3c7c63f3d)
 
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
@@ -205,7 +204,8 @@ console.log(midtermScores);
 console.log(personSD)
 ```
 [รูปผลการทดลองที่ 2.1]
-![image](https://github.com/user-attachments/assets/e12cd6fa-acfe-49d5-a109-6a3b5bee8432)
+
+![image](https://github.com/user-attachments/assets/9e318523-cd8e-46a8-b870-a404b0b10e84)
 
 ### 2.2 การดำเนินการทางคณิตศาสตร์
 
@@ -273,6 +273,7 @@ const maxprice = priceProduct * VAT;
 console.log("maxprice : ", maxprice);
 ```
 [รูปผลการทดลองที่ 2.2]
+
 ![image](https://github.com/user-attachments/assets/cae7f94a-4023-4ac0-8a73-ef2f3faccae2)
 
 ### 2.3 การควบคุมการทำงาน
@@ -404,23 +405,43 @@ for (let i = 1; i <= 5; i++) {
 
 ### บันทึกผลการทดลอง 2.3
 ```js
-let math = 70;
-let thai = 90;
-let eng = 85;
+let number = 4;
 
-let sum = math + thai + eng;
-let result = sum / 3;
+if (number % 2 === 0) {
+    console.log('เป็นเลขคู่');
+} else {
+    console.log('เป็นเลขคี่');
+}
 
-console.log("score : ", result);
+for (let i = 1; i <= 12; i++) {
+    console.log(`2 x ${i} = ${2 * i}`);
+}
 
-const nameProduct = "Mobile";
-const priceProduct = 85;
-const VAT = 7 / 100;
-const maxprice = priceProduct * VAT;
+let j = 1;
+while (j <= 12) {
+    console.log(`3 x ${j} = ${3 * j}`);
+    j++;
+}
 
-console.log("maxprice : ", maxprice);
+for (let k = 10; k >= 1; k--) {
+    console.log(k);
+}
+
+let age = 23;
+if (age < 0) {
+} else if (age <= 12) {
+    console.log(`อายุ ${age}: วัยเด็ก`);
+} else if (age <= 19) {
+    console.log(`อายุ ${age}: วัยรุ่น`);
+} else if (age <= 59) {
+    console.log(`อายุ ${age}: วัยผู้ใหญ่`);
+} else {
+    console.log(`อายุ ${age}: วัยสูงอายุ`);
+}
 ```
 [รูปผลการทดลองที่ 2.3]
+
+![image](https://github.com/user-attachments/assets/ea22e90b-989b-43a0-b203-5ba6cfc9965e)
 
 ### 2.4 Functions และ Arrow Functions
 
@@ -531,12 +552,44 @@ process(function() {
 3. เขียน function ตรวจสอบรหัสผ่านว่ามีความยาวมากกว่า 8 ตัวอักษรหรือไม่
 
 ### บันทึกผลการทดลอง 2.4.1
-```html
-[บันทึกโค้ด ที่นี่]
+```js
+const calculateBMI = (weight, height) => {
+    const bmi = weight / (height * height);
+    return `ค่า BMI ของคุณคือ ${bmi.toFixed(2)}`;
+};
+
+console.log(calculateBMI(70, 1.75));
+
+greetByAge("theeranat", 19);
+const greetByAge = (name, age) => {
+    let message;
+    if (age < 0) {
+        message = "กรุณาใส่อายุตัวเลขที่ถูกต้อง";
+    } else if (age <= 12) {
+        message = `สวัสดีครับ/ค่ะ ${name} คุณยังเป็นเด็กอยู่เลย!`;
+    } else if (age <= 19) {
+        message = `สวัสดีครับ/ค่ะ ${name} วัยรุ่นไฟแรงเลยนะ!`;
+    } else if (age <= 59) {
+        message = `สวัสดีครับ/ค่ะ ${name} ขอให้มีความสุขในวัยทำงานนะครับ!`;
+    } else {
+        message = `สวัสดีครับ/ค่ะ ${name} รักษาสุขภาพในวัยสูงอายุนะครับ!`;
+    }
+    console.log(message);
+};
+
+const isValidPassword = password => {
+    if (password.length > 8) {
+        return "รหัสผ่านปลอดภัย";
+    } else {
+        return "รหัสผ่านสั้นเกินไป (ต้องมากกว่า 8 ตัวอักษร)";
+    }
+};
+
+console.log(isValidPassword("qwertyui"));
 ```
 [รูปผลการทดลองที่ 2.4.1]
 
-
+![image](https://github.com/user-attachments/assets/091a763a-35ea-4f1b-9937-4e401a623ba2)
 
 #### 2.4.2 Arrow Function
 Arrow Function เป็นวิธีการเขียน function แบบสั้นๆ ที่มาพร้อมกับ JavaScript เวอร์ชัน ES6
