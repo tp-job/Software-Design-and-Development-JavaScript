@@ -627,11 +627,22 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 3. เขียน function ตรวจสอบรหัสผ่านว่ามีความยาวมากกว่า 8 ตัวอักษรหรือไม่
 
 ### บันทึกผลการทดลอง 2.4.2
-```html
-[บันทึกโค้ด ที่นี่]
+```js
+const calculateBMI = (weight, height) => weight / (height ** 2);
+
+console.log(calculateBMI(70, 1.75));
+
+const greetByAge = (name, age) => age < 18 ? `สวัสดี ${name}! คุณยังเป็นวัยรุ่นอยู่` : `สวัสดีคุณ ${name}! ยินดีต้อนรับ`;
+
+console.log(greetByAge("theeranat", 12));
+
+const isPasswordValid = password => password.length > 8;
+
+console.log(isPasswordValid("qwertyui"));
 ```
 [รูปผลการทดลองที่ 2.4.2]
 
+![image](https://github.com/user-attachments/assets/30bf8854-c3db-4382-9184-085dc70a0327)
 
 ## การทดลองที่ 3 : การใช้ JavaScript กับ HTML และ CSS
 ### การทดลองที่ 3.1 การสร้างปุ่มและจัดการ Event ด้วย JavaScript
