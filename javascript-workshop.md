@@ -709,9 +709,152 @@ console.log(isPasswordValid("qwertyui"));
 
 ### บันทึกผลการทดลอง 3.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    
+    <!-- css -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --arial-font: Arial, Helvetica, sans-serif;
+            --primary-color: #4CAF50;
+            --secondary-color: #f1f1f1;
+            --text-color: #333;
+            --input-border: #ccc;
+            --input-focus: #4CAF50;
+            --button-hover: #45a049;
+        }
+
+        html {
+            font-family: var(--arial-font);
+            padding: 20px 100px;
+        }
+
+        .title {
+            text-align: center;
+            color: var(--primary-color);
+            margin: 40px;
+        }
+
+        .form {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            color: var(--text-color);
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: 2px solid var(--input-border);
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--input-focus);
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+        }
+
+        .button {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background: var(--button-hover);
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">CalculateBMI</h1>
+    <hr>
+    <form class="form">
+        <div class="weight">
+            <label for="weight">Input weight (Kilogram)</label>
+            <input type="number" name="weight" id="weight">
+        </div>
+        <!-- <hr> -->
+        <div class="height">
+            <label for="height">Input height (Meter)</label>
+            <input type="number" name="height" id="height">
+        </div>
+        <button type="button" id="result-btn" class="button" onclick="showBMI()">Submit</button>
+    </form>
+    <hr>
+    <h2 class="result" id="result"></h2>
+
+    <!-- js -->
+    <script>
+        const calculateBMI = (weight, height) => (weight / (height ** 2)).toFixed(2);
+
+        const showBMI = () => {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value);
+        const resultDiv = document.getElementById("result");
+
+        if (!weight || !height || weight <= 0 || height <= 0) {
+            resultDiv.innerHTML = `<span style="color: red;">กรุณากรอกข้อมูลให้ถูกต้อง</span>`;
+            return;
+        }
+
+        const bmi = calculateBMI(weight, height);
+        let message = "";
+
+        if (bmi < 18.5) {
+            message = "คุณน้ำหนักต่ำกว่ามาตรฐาน (ผอม)";
+        } else if (bmi < 24.9) {
+            message = "คุณน้ำหนักปกติ";
+        } else if (bmi < 29.9) {
+            message = "น้ำหนักเกิน (ท้วม)";
+        } else if (bmi < 34.9) {
+            message = "โรคอ้วนระดับ 1";
+        } else if (bmi < 39.9) {
+            message = "โรคอ้วนระดับ 2";
+        } else {
+            message = "โรคอ้วนระดับ 3 (อันตรายมาก)";
+        }
+
+        resultDiv.innerHTML = `ค่า BMI ของคุณคือ: <b>${bmi}</b><br><span>${message}</span>`;
+    };
+    </script>
+</body>
+</html>
 ```
 [รูปผลการทดลองที่ 3.1]
+![image](https://github.com/user-attachments/assets/59dfe176-ae79-4699-8f4a-4c544ba97fca)
 
 ## การทดลองที่ 3.2 : การสร้างฟอร์มสำหรับจองห้องพัก
 การสร้างฟอร์มลงทะเบียนเพื่อรวบรวมข้อมูลที่จำเป็นสำหรับการจองห้องพัก
@@ -871,9 +1014,109 @@ console.log(isPasswordValid("qwertyui"));
 
 ### บันทึกผลการทดลอง 3.2.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        :root {
+            --kanit-font: "Kanit", serif;
+            --sakura-pink: #ffb7c5;
+            --sakura-light-pink: #ffd9e3;
+            --sakura-dark-pink: #e56a89;
+            --sakura-white: #fff0f5;
+            --sakura-brown: #8b5a2b;
+            --primary-color: #ff6b81;
+            --secondary-color: #f8c8dc;
+            --background-color: #fffafc;
+            --text-color: #333;
+            --border-color: #e0a3b6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--kanit-font);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: var(--background-color);
+        }
+
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px 0 var(--sakura-light-pink);
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        input, 
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus, 
+        select:focus {
+            outline: none;
+            border-color: var(--sakura-dark-pink);
+            box-shadow: 0 0 5px var(--border-color);
+        }
+
+        button {
+            background-color: var(--sakura-dark-pink);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: var(--sakura-pink);
+            color: var(--text-color);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
 ```
+การปรับเปลี่ยน css
+
+1. การใช้ Kanit Font จาก https://fonts.google.com/ รูปแบบของ import url
+2. จาก set up ทุก element ให้มี margin 0, padding 0, box-sizing border-box
+3. การใช้ :root เพื่อ set up ค่าต่างๆ เช่น font-family, color
+4. การปรับแต่งสีต่างๆ ทั้ง background form text button และ :hover, :focus
+
 [รูปผลการทดลองที่ 3.2.2]
+![image](https://github.com/user-attachments/assets/9cb0c136-1ecf-4dc9-8aed-0c98e1f73e73)
 
 
 ## ขั้นตอนที่ 3.2.3: การเพิ่มฟังก์ชันด้วย JavaScript
@@ -978,9 +1221,250 @@ console.log(isPasswordValid("qwertyui"));
 
 ### บันทึกผลการทดลอง 3.2.3
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <!-- css -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        :root {
+            --kanit-font: "Kanit", serif;
+            --sakura-pink: #ffb7c5;
+            --sakura-light-pink: #ffd9e3;
+            --sakura-dark-pink: #e56a89;
+            --sakura-white: #fff0f5;
+            --sakura-brown: #8b5a2b;
+            --primary-color: #ff6b81;
+            --secondary-color: #f8c8dc;
+            --background-color: #fffafc;
+            --text-color: #333;
+            --border-color: #e0a3b6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--kanit-font);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: var(--background-color);
+        }
+
+        h1 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 30px 0 var(--sakura-light-pink);
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        input, 
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus, 
+        select:focus {
+            outline: none;
+            border-color: var(--sakura-dark-pink);
+            box-shadow: 0 0 5px var(--border-color);
+        }
+
+        button {
+            background-color: var(--sakura-dark-pink);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: var(--sakura-pink);
+            color: var(--text-color);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+<body>
+    <h1>แบบฟอร์มจองห้องพัก</h1>
+    
+    <form id="bookingForm">
+        <div>
+            <label for="fullname">ชื่อ-นามสกุล:</label>
+            <input type="text" id="fullname" name="fullname" required>
+        </div>
+
+        <div>
+            <label for="email">อีเมล:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="phone">เบอร์โทรศัพท์:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div>
+            <label for="checkin">วันที่เช็คอิน:</label>
+            <input type="date" id="checkin" name="checkin" required>
+        </div>
+
+        <div>
+            <label for="checkout">วันที่เช็คเอาท์:</label>
+            <input type="date" id="checkout" name="checkout" required>
+        </div>
+
+        <div>
+            <label for="roomtype">ประเภทห้องพัก:</label>
+            <select id="roomtype" name="roomtype" required>
+                <option value="">กรุณาเลือกประเภทห้องพัก</option>
+                <option value="single">ห้องพักสำหรับ 1 คน เตียงเดี่ยว 1 เตียง</option>
+                <option value="double">ห้องพักสำหรับ 2 คน เตียงเดี่ยวขนาดใหญ่ 1 เตียง</option>
+                <option value="twin">ห้องพักสำหรับ 2 คน เตียงเดี่ยว 2 เตียง แยกจากกัน</option>
+                <option value="triple">ห้องพักสำหรับ 3 คน เตียง 3 เตียง </option>
+                <option value="quad">ห้องพักสำหรับ 4 คน เตียงเดี่ยว 4 เตียง</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="guests">จำนวนผู้เข้าพัก:</label>
+            <input type="number" id="guests" name="guests" min="1" max="4" required>
+        </div>
+
+        <button type="submit">จองห้องพัก</button>
+    </form>
+
+    <!-- js -->
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // ตรวจสอบวันที่
+            const checkin = new Date(document.getElementById('checkin').value);
+            const checkout = new Date(document.getElementById('checkout').value);
+            const today = new Date();
+            
+            if (checkin < today) {
+                alert('กรุณาเลือกวันเช็คอินที่ยังไม่ผ่านมา');
+                return;
+            }
+            
+            if (checkout <= checkin) {
+                alert('วันเช็คเอาท์ต้องมาหลังวันเช็คอิน');
+                return;
+            }
+            
+            // ตรวจสอบรูปแบบเบอร์โทร
+            const phone = document.getElementById('phone').value;
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)');
+                return;
+            }
+            
+            // คำนวณจำนวนวันที่พัก
+            const days = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+            // แสดงสรุปการจอง
+            const roomtype = document.getElementById('roomtype');
+            const roomtypeText = roomtype.options[roomtype.selectedIndex].text;
+            
+            const summary = `
+                สรุปการจอง:
+                - ชื่อผู้จอง: ${document.getElementById('fullname').value}
+                - ประเภทห้อง: ${roomtypeText}
+                - วันที่เข้าพัก: ${checkin.toLocaleDateString('th-TH')}
+                - วันที่ออก: ${checkout.toLocaleDateString('th-TH')}
+                - จำนวนวันที่พัก: ${days} วัน
+                - จำนวนผู้เข้าพัก: ${document.getElementById('guests').value} ท่าน
+                - ขอบคุณที่เลือกใข้บริการของเรา
+            `;
+            
+            if (confirm(summary + '\n\nยืนยันการจองห้องพัก?')) {
+                alert('จองห้องพักเรียบร้อยแล้ว');
+                this.reset();
+            }
+        });
+    
+        // เพิ่มการตรวจสอบวันที่แบบ Real-time
+        document.getElementById('checkin').addEventListener('change', function() {
+            document.getElementById('checkout').min = this.value;
+        });
+    
+        // จำกัดจำนวนผู้เข้าพักตามประเภทห้อง
+        document.getElementById('roomtype').addEventListener('change', function() {
+            const guestsInput = document.getElementById('guests');
+            if (this.value === 'single') {
+                guestsInput.max = 1;
+            } else if (this.value === 'double') {
+                guestsInput.max = 2;
+            } else if (this.value === 'twin') {
+                guestsInput.max = 2;
+            } else if (this.value === 'triple') {
+                guestsInput.max = 3;
+            } else if (this.value === 'quad') {
+                guestsInput.max = 4;
+            } 
+            
+            if (guestsInput.value > guestsInput.max) {
+                guestsInput.value = guestsInput.max;
+            }
+        });
+    </script>
+</body>
+</html>
 ```
+
+การปรับเปลี่ยน html
+
+1. ปรับเปลี่ยน form ที่ ประเภทห้องพัก ให้มีประเภท 5 ประเภท
+
+การปรับเปลี่ยน js
+
+1. ปรับเปลี่ยนการจำกัดจำนวนผู้เข้าพักในแต่ละประเภทของห้องพัก
+
 [รูปผลการทดลองที่ 3.2.3]
+![image](https://github.com/user-attachments/assets/5ca60007-cb5c-40d6-8dff-e7a0b3429ddd)
+
+![image](https://github.com/user-attachments/assets/0b96082c-565f-4265-b52f-08cde44cfc9f)
 
 
 ## คำแนะนำเพิ่มเติม
