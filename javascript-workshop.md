@@ -264,17 +264,17 @@ let sum = math + thai + eng;
 let result = sum / 3;
 
 console.log("score : ", result);
-
+```
+```js
 const nameProduct = "Mobile";
 const priceProduct = 85;
-const VAT = 7 / 100;
-const maxprice = priceProduct * VAT;
+const VAT = .07;
+const maxprice = priceProduct + (priceProduct * VAT);
 
 console.log("maxprice : ", maxprice);
 ```
 [รูปผลการทดลองที่ 2.2]
-
-![image](https://github.com/user-attachments/assets/cae7f94a-4023-4ac0-8a73-ef2f3faccae2)
+![image](https://github.com/user-attachments/assets/3f40b240-9f6f-42ab-ac96-d400873b2d9f)
 
 ### 2.3 การควบคุมการทำงาน
 
@@ -412,21 +412,25 @@ if (number % 2 === 0) {
 } else {
     console.log('เป็นเลขคี่');
 }
-
+```
+```js
 for (let i = 1; i <= 12; i++) {
     console.log(`2 x ${i} = ${2 * i}`);
 }
-
+```
+```js
 let j = 1;
 while (j <= 12) {
     console.log(`3 x ${j} = ${3 * j}`);
     j++;
 }
-
+```
+```js
 for (let k = 10; k >= 1; k--) {
     console.log(k);
 }
-
+```
+```js
 let age = 23;
 if (age < 0) {
 } else if (age <= 12) {
@@ -559,7 +563,8 @@ const calculateBMI = (weight, height) => {
 };
 
 console.log(calculateBMI(70, 1.75));
-
+```
+```js
 greetByAge("theeranat", 19);
 const greetByAge = (name, age) => {
     let message;
@@ -576,7 +581,8 @@ const greetByAge = (name, age) => {
     }
     console.log(message);
 };
-
+```
+```js
 const isValidPassword = password => {
     if (password.length > 8) {
         return "รหัสผ่านปลอดภัย";
@@ -631,11 +637,13 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 const calculateBMI = (weight, height) => weight / (height ** 2);
 
 console.log(calculateBMI(70, 1.75));
-
+```
+```js
 const greetByAge = (name, age) => age < 18 ? `สวัสดี ${name}! คุณยังเป็นวัยรุ่นอยู่` : `สวัสดีคุณ ${name}! ยินดีต้อนรับ`;
 
 console.log(greetByAge("theeranat", 12));
-
+```
+```js
 const isPasswordValid = password => password.length > 8;
 
 console.log(isPasswordValid("qwertyui"));
